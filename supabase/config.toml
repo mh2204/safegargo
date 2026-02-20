@@ -1,0 +1,7 @@
+project_id = "sabzegjeatnxythqgzvb"
+
+[functions.send-booking-notification]
+verify_jwt = false
+
+[functions.get-here-api-key]
+verify_jwt = false

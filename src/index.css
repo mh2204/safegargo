@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* SafeCargo Modern Design - Midnight & Electric Cyan */
+    --background: 224 71% 4%; /* #030712 */
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%; /* #0ea5e9 - Electric Cyan */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 32% 17%; /* #1e293b */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 27%; /* #334155 */
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 187 92% 38%; /* #0891b2 */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 32% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 32% 17%;
+    --sidebar-ring: 199 89% 48%;
+
+    /* Custom Gradients and Effects */
+    --gradient-midnight: linear-gradient(180deg, hsl(224 71% 4%) 0%, hsl(222 47% 11%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(199 89% 48%), hsl(187 92% 38%));
+    --glass-bg: hsla(217, 32%, 17%, 0.5);
+    --glass-border: hsla(210, 40%, 98%, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground selection:bg-primary/30;
+    background-image: var(--gradient-midnight);
+    background-attachment: fixed;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Unique Design Elements */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    @apply shadow-xl transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    border-color: hsla(199, 89%, 48%, 0.3);
+    @apply shadow-primary/10;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsla(199, 89%, 48%, 0.5);
+  }
+
+  .btn-cyan {
+    background: var(--gradient-cyan);
+    @apply text-white font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200;
+  }
+
+  .hero-text-glow {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-400 to-cyan-200;
+    filter: drop-shadow(0 0 30px hsla(199, 89%, 48%, 0.3));
+  }
+
+  /* Grainy texture effect */
+  .grain {
+    position: relative;
+  }
+  
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: 50;
+  }
+
+  .section-padding {
+    @apply py-24 px-6;
+  }
+}
