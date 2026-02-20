@@ -76,7 +76,7 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden bg-white">
             <img
-              src="/logo.PNG"
+              src="logo.PNG"
               alt="SafeCargo Logo"
               className="w-full h-full object-contain"
               onError={(e) => {
